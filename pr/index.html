@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Reader</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <div id="sidebar">
+            <button onclick="showSection('timetable')">Timetable</button>
+            <button onclick="showSection('checklist')">Checklist</button>
+            <button onclick="showSection('timer')">Timer</button>
+            <button onclick="showSection('calories')">Calorie Counter</button>
+        </div>
+        
+        <!-- Content Area -->
+        <div id="content">
+            <!-- Timetable Section (Calendar) -->
+            <section id="timetable" class="section slide">
+                <h2>Timetable</h2>
+                <div id="month-year"></div> <!-- Display Month and Year -->
+                <div id="calendar">
+                    <!-- Calendar will be generated here -->
+                </div>
+                <div id="tasks-for-day">
+                    <!-- Tasks for selected day will appear here -->
+                </div>
+                <button onclick="addTaskForDay(prompt('Enter the day (1-31):'))">Add Task</button>
+            </section>
+
+            <!-- Checklist Section -->
+            <section id="checklist" class="section slide">
+                <h2>Checklist</h2>
+                <input type="text" id="checklist-name" placeholder="Enter checklist name" />
+                <button onclick="createChecklist()">Create Checklist</button>
+                <div id="checklist-container"></div>
+            </section>
+
+            <!-- Timer Section -->
+            <section id="timer" class="section slide">
+                <h2>Timer</h2>
+                <div id="timer-display">00:00</div>
+                <div class="timer-buttons">
+                    <button onclick="startTimer()">Start</button>
+                    <button onclick="stopTimer()">🛑</button> <!-- Stop Timer Symbol -->
+                    <button onclick="resetTimer()">Reset</button>
+                </div>
+            </section>
+
+            <!-- Calorie Counter Section -->
+            <section id="calories" class="section slide">
+                <h2>Calorie Counter</h2>
+                <div>
+                    <input type="number" id="calories-consumed" placeholder="Calories consumed" />
+                    <button onclick="addCalories('consumed')">Add Calories Consumed</button>
+                </div>
+                <div>
+                    <input type="number" id="calories-burned" placeholder="Calories burned" />
+                    <button onclick="addCalories('burned')">Add Calories Burned</button>
+                </div>
+                <div>Total Calories Consumed: <span id="total-consumed">0</span></div>
+                <div>Total Calories Burned: <span id="total-burned">0</span></div>
+            </section>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
